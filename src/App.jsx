@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PersonalForm from "./components/PersonalForm";
 import CVPreview from "./components/CVPreview";
+import "./App.css";
 
 function App() {
   const [cv, setCv] = useState({
@@ -21,15 +22,23 @@ function App() {
   });
 
   return (
-    <div>
+    <div className="app">
       <h1>CV Builder</h1>
 
-      <PersonalForm
-        cv={cv}
-        setCv={setCv}
-      />
+      <div className="container">
 
-      <CVPreview cv={cv} />
+        <div className="form-panel">
+          <PersonalForm
+            cv={cv}
+            setCv={setCv}
+          />
+        </div>
+
+        <div className="preview-panel">
+          <CVPreview cv={cv} />
+        </div>
+
+      </div>
     </div>
   );
 }
