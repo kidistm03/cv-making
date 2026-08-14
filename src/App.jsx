@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PersonalForm from "./components/PersonalForm";
+import CVPreview from "./components/CVPreview";
 
 function App() {
   const [cv, setCv] = useState({
@@ -27,6 +28,8 @@ function App() {
         cv={cv}
         setCv={setCv}
       />
+
+      <CVPreview cv={cv} />
     </div>
   );
 }
