@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PersonalForm from "./components/PersonalForm";
 
 function App() {
   const [cv, setCv] = useState({
@@ -21,6 +22,11 @@ function App() {
   return (
     <div>
       <h1>CV Builder</h1>
+
+      <PersonalForm
+        cv={cv}
+        setCv={setCv}
+      />
     </div>
   );
 }
