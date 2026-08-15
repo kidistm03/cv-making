@@ -1,35 +1,42 @@
 function CVPreview({ cv }) {
   return (
     <div className="cv">
-      <div className="cv-header">
+      {/* Personal Information */}
+      <header className="cv-header">
         <h1>{cv.personal.name || "Your Name"}</h1>
 
         <p>
-          {cv.personal.email || "email@example.com"} |{" "}
-          {cv.personal.phone || "Phone"} | {cv.personal.location || "Location"}
+          {cv.personal.email}
+          {cv.personal.phone && ` | ${cv.personal.phone}`}
+          {cv.personal.location && ` | ${cv.personal.location}`}
         </p>
 
-        <p>
-          {cv.personal.linkedin && `LinkedIn: ${cv.personal.linkedin}`}{" "}
-          {cv.personal.github && `GitHub: ${cv.personal.github}`}
-        </p>
-      </div>
+        {(cv.personal.linkedin || cv.personal.github) && (
+          <p>
+            {cv.personal.linkedin}
+            {cv.personal.linkedin && cv.personal.github && " | "}
+            {cv.personal.github}
+          </p>
+        )}
+      </header>
 
-      <hr />
-
+      {/* Education */}
       {cv.education.length > 0 && (
-        <section>
+        <section className="cv-section">
           <h2>Education</h2>
 
           {cv.education.map((education, index) => (
-            <div key={index}>
-              <h3>{education.school}</h3>
+            <div className="cv-item" key={index}>
+              <div>
+                <h3>{education.school}</h3>
 
-              <p>
-                {education.degree} - {education.field}
-              </p>
+                <p>
+                  {education.degree}
+                  {education.field && ` - ${education.field}`}
+                </p>
+              </div>
 
-              <p>
+              <p className="date">
                 {education.startDate} - {education.endDate}
               </p>
             </div>
@@ -37,37 +44,37 @@ function CVPreview({ cv }) {
         </section>
       )}
 
-      <hr />
-
+      {/* Experience */}
       {cv.experience.length > 0 && (
-        <section>
+        <section className="cv-section">
           <h2>Experience</h2>
 
           {cv.experience.map((experience, index) => (
-            <div key={index}>
-              <h3>{experience.company}</h3>
+            <div className="cv-item" key={index}>
+              <div>
+                <h3>{experience.company}</h3>
 
-              <p>{experience.role}</p>
+                <p>{experience.role}</p>
 
-              <p>
+                <p>{experience.description}</p>
+              </div>
+
+              <p className="date">
                 {experience.startDate} - {experience.endDate}
               </p>
-
-              <p>{experience.description}</p>
             </div>
           ))}
         </section>
       )}
 
-      <hr />
-
+      {/* Skills */}
       {cv.skills.length > 0 && (
-        <section>
+        <section className="cv-section">
           <h2>Skills</h2>
 
           <div className="skills-list">
             {cv.skills.map((skill, index) => (
-              <span key={index} className="skill-tag">
+              <span className="skill-tag" key={index}>
                 {skill}
               </span>
             ))}
