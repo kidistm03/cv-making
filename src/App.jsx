@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import html2pdf from "html2pdf.js";
 import PersonalForm from "./components/PersonalForm";
 import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
@@ -76,7 +76,28 @@ function App() {
       skills: ["JavaScript", "React", "HTML", "CSS", "Git"],
     });
   }
+  function downloadPDF() {
+    const element = document.querySelector(".cv");
 
+    const options = {
+      margin: 0,
+      filename: "my-cv.pdf",
+      image: {
+        type: "jpeg",
+        quality: 0.98,
+      },
+      html2canvas: {
+        scale: 2,
+      },
+      jsPDF: {
+        unit: "mm",
+        format: "a4",
+        orientation: "portrait",
+      },
+    };
+
+    html2pdf().set(options).from(element).save();
+  }
   return (
     <div className="app">
       <h1>CV Builder</h1>
@@ -87,6 +108,7 @@ function App() {
 
       <button onClick={clearAll}>Clear All</button>
       <button onClick={loadExample}>Load Example</button>
+      <button onClick={downloadPDF}>Download PDF</button>
 
       <div className="container">
         {!isPreview && (
