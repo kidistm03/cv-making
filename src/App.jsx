@@ -2,6 +2,7 @@ import { useState } from "react";
 import PersonalForm from "./components/PersonalForm";
 import CVPreview from "./components/CVPreview";
 import EducationForm from "./components/EducationForm";
+import ExperienceForm from "./components/ExperienceForm";
 import "./App.css";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <div className="form-panel">
           <PersonalForm cv={cv} setCv={setCv} />
           <EducationForm cv={cv} setCv={setCv} />
+          <ExperienceForm cv={cv} setCv={setCv} />
         </div>
 
         <div className="preview-panel">

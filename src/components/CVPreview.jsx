@@ -39,10 +39,25 @@ function CVPreview({ cv }) {
 
       <hr />
 
-      <section>
-        <h2>Experience</h2>
-        <p>Your experience will appear here.</p>
-      </section>
+      {cv.experience.length > 0 && (
+        <section>
+          <h2>Experience</h2>
+
+          {cv.experience.map((experience, index) => (
+            <div key={index}>
+              <h3>{experience.company}</h3>
+
+              <p>{experience.role}</p>
+
+              <p>
+                {experience.startDate} - {experience.endDate}
+              </p>
+
+              <p>{experience.description}</p>
+            </div>
+          ))}
+        </section>
+      )}
 
       <hr />
 
