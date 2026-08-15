@@ -1,31 +1,41 @@
 function CVPreview({ cv }) {
   return (
     <div className="cv">
-
       <div className="cv-header">
         <h1>{cv.personal.name || "Your Name"}</h1>
 
         <p>
-          {cv.personal.email || "email@example.com"} |
-          {" "}
-          {cv.personal.phone || "Phone"} |
-          {" "}
-          {cv.personal.location || "Location"}
+          {cv.personal.email || "email@example.com"} |{" "}
+          {cv.personal.phone || "Phone"} | {cv.personal.location || "Location"}
         </p>
 
         <p>
-          {cv.personal.linkedin && `LinkedIn: ${cv.personal.linkedin}`}
-          {" "}
+          {cv.personal.linkedin && `LinkedIn: ${cv.personal.linkedin}`}{" "}
           {cv.personal.github && `GitHub: ${cv.personal.github}`}
         </p>
       </div>
 
       <hr />
 
-      <section>
-        <h2>Education</h2>
-        <p>Your education will appear here.</p>
-      </section>
+      {cv.education.length > 0 && (
+        <section>
+          <h2>Education</h2>
+
+          {cv.education.map((education, index) => (
+            <div key={index}>
+              <h3>{education.school}</h3>
+
+              <p>
+                {education.degree} - {education.field}
+              </p>
+
+              <p>
+                {education.startDate} - {education.endDate}
+              </p>
+            </div>
+          ))}
+        </section>
+      )}
 
       <hr />
 
@@ -40,7 +50,6 @@ function CVPreview({ cv }) {
         <h2>Skills</h2>
         <p>Your skills will appear here.</p>
       </section>
-
     </div>
   );
 }
