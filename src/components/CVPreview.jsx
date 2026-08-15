@@ -61,10 +61,19 @@ function CVPreview({ cv }) {
 
       <hr />
 
-      <section>
-        <h2>Skills</h2>
-        <p>Your skills will appear here.</p>
-      </section>
+      {cv.skills.length > 0 && (
+        <section>
+          <h2>Skills</h2>
+
+          <div className="skills-list">
+            {cv.skills.map((skill, index) => (
+              <span key={index} className="skill-tag">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
