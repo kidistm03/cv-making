@@ -10,7 +10,6 @@ function EducationForm({ cv, setCv }) {
 
     setCv({
       ...cv,
-
       education: [
         ...cv.education,
         newEducation
@@ -22,7 +21,38 @@ function EducationForm({ cv, setCv }) {
     <div>
       <h2>Education</h2>
 
-      <p>Number of entries: {cv.education.length}</p>
+      {cv.education.map((education, index) => (
+        <div key={index}>
+
+          <h3>Education {index + 1}</h3>
+
+          <input
+            type="text"
+            placeholder="School"
+          />
+
+          <input
+            type="text"
+            placeholder="Degree"
+          />
+
+          <input
+            type="text"
+            placeholder="Field of Study"
+          />
+
+          <input
+            type="text"
+            placeholder="Start Date"
+          />
+
+          <input
+            type="text"
+            placeholder="End Date"
+          />
+
+        </div>
+      ))}
 
       <button onClick={addEducation}>
         Add Education
