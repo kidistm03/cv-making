@@ -3,6 +3,7 @@ import PersonalForm from "./components/PersonalForm";
 import CVPreview from "./components/CVPreview";
 import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
+import SkillsForm from "./components/SkillsForm";
 import "./App.css";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <PersonalForm cv={cv} setCv={setCv} />
           <EducationForm cv={cv} setCv={setCv} />
           <ExperienceForm cv={cv} setCv={setCv} />
+          <SkillsForm cv={cv} setCv={setCv} />
         </div>
 
         <div className="preview-panel">
