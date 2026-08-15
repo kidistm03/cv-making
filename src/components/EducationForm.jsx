@@ -5,11 +5,23 @@ function EducationForm({ cv, setCv }) {
 
       <p>No education added yet.</p>
 
-      <button>
-        Add Education
-      </button>
+      <button>Add Education</button>
     </div>
   );
 }
+function addEducation() {
+  const newEducation = {
+    school: "",
+    degree: "",
+    field: "",
+    startDate: "",
+    endDate: "",
+  };
 
+  setCv({
+    ...cv,
+
+    education: [...cv.education, newEducation],
+  });
+}
 export default EducationForm;
