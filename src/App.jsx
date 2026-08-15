@@ -42,6 +42,40 @@ function App() {
       skills: [],
     });
   }
+  function loadExample() {
+    setCv({
+      personal: {
+        name: "Kidist Meseret",
+        email: "kidistmeseret1@gmail.com",
+        phone: "0911223344",
+        location: "Addis Ababa, Ethiopia",
+        linkedin: "linkedin.com/in/kidist",
+        github: "https://github.com/kidistm03",
+      },
+
+      education: [
+        {
+          school: "Addis Ababa University",
+          degree: "BSc",
+          field: "Software Engineering",
+          startDate: "2023",
+          endDate: "2027",
+        },
+      ],
+
+      experience: [
+        {
+          company: "Tech Company",
+          role: "Frontend Developer",
+          startDate: "2025",
+          endDate: "2026",
+          description: "Built responsive web applications using React.",
+        },
+      ],
+
+      skills: ["JavaScript", "React", "HTML", "CSS", "Git"],
+    });
+  }
 
   return (
     <div className="app">
@@ -52,6 +86,7 @@ function App() {
       </button>
 
       <button onClick={clearAll}>Clear All</button>
+      <button onClick={loadExample}>Load Example</button>
 
       <div className="container">
         {!isPreview && (
