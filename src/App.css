@@ -35,3 +35,31 @@ body {
   padding: 30px;
   min-height: 700px;
 }
+.cv {
+  background: white;
+  min-height: 650px;
+}
+
+.cv-header {
+  text-align: center;
+}
+
+.cv-header h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.cv-header p {
+  margin: 5px 0;
+}
+
+.cv section {
+  margin: 20px 0;
+}
+
+.cv section h2 {
+  font-size: 20px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+}

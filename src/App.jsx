@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PersonalForm from "./components/PersonalForm";
 import CVPreview from "./components/CVPreview";
+import EducationForm from "./components/EducationForm";
 import "./App.css";
 
 function App() {
@@ -11,14 +12,14 @@ function App() {
       phone: "",
       location: "",
       linkedin: "",
-      github: ""
+      github: "",
     },
 
     education: [],
 
     experience: [],
 
-    skills: []
+    skills: [],
   });
 
   return (
@@ -26,18 +27,14 @@ function App() {
       <h1>CV Builder</h1>
 
       <div className="container">
-
         <div className="form-panel">
-          <PersonalForm
-            cv={cv}
-            setCv={setCv}
-          />
+          <PersonalForm cv={cv} setCv={setCv} />
+          <EducationForm cv={cv} setCv={setCv} />
         </div>
 
         <div className="preview-panel">
           <CVPreview cv={cv} />
         </div>
-
       </div>
     </div>
   );
