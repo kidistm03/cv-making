@@ -77,27 +77,33 @@ function App() {
     });
   }
   function downloadPDF() {
-    const element = document.querySelector(".cv");
+  const element = document.querySelector(".cv");
 
-    const options = {
-      margin: 0,
-      filename: "my-cv.pdf",
-      image: {
-        type: "jpeg",
-        quality: 0.98,
-      },
-      html2canvas: {
-        scale: 2,
-      },
-      jsPDF: {
-        unit: "mm",
-        format: "a4",
-        orientation: "portrait",
-      },
-    };
+  const options = {
+    margin: 10,
+    filename: "my-cv.pdf",
 
-    html2pdf().set(options).from(element).save();
-  }
+    image: {
+      type: "jpeg",
+      quality: 0.98,
+    },
+
+    html2canvas: {
+      scale: 2,
+    },
+
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait",
+    },
+  };
+
+  html2pdf()
+    .set(options)
+    .from(element)
+    .save();
+}
   return (
     <div className="app">
       <h1>CV Builder</h1>
