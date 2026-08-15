@@ -1,9 +1,12 @@
 import { useState } from "react";
+
 import PersonalForm from "./components/PersonalForm";
-import CVPreview from "./components/CVPreview";
 import EducationForm from "./components/EducationForm";
 import ExperienceForm from "./components/ExperienceForm";
 import SkillsForm from "./components/SkillsForm";
+
+import CVPreview from "./components/CVPreview";
+
 import "./App.css";
 
 function App() {
@@ -24,17 +27,28 @@ function App() {
     skills: [],
   });
 
+  const [isPreview, setIsPreview] = useState(false);
+
   return (
     <div className="app">
       <h1>CV Builder</h1>
 
+      <button onClick={() => setIsPreview(!isPreview)}>
+        {isPreview ? "Edit CV" : "Preview CV"}
+      </button>
+
       <div className="container">
-        <div className="form-panel">
-          <PersonalForm cv={cv} setCv={setCv} />
-          <EducationForm cv={cv} setCv={setCv} />
-          <ExperienceForm cv={cv} setCv={setCv} />
-          <SkillsForm cv={cv} setCv={setCv} />
-        </div>
+        {!isPreview && (
+          <div className="form-panel">
+            <PersonalForm cv={cv} setCv={setCv} />
+
+            <EducationForm cv={cv} setCv={setCv} />
+            
+            <ExperienceForm cv={cv} setCv={setCv} />
+
+            <SkillsForm cv={cv} setCv={setCv} />
+          </div>
+        )}
 
         <div className="preview-panel">
           <CVPreview cv={cv} />
